@@ -5,12 +5,9 @@ export function HeroSuccessCard() {
   return (
     <div
       className={cn(
-        "hero-success-card w-[330px] shrink-0 rounded-[28px] border border-white/80 bg-white/88 p-8 text-center",
+        "hero-success-card w-[clamp(280px,20vw,330px)] max-w-full shrink-0 rounded-[28px] border border-white/80 bg-white/88 p-[clamp(1.5rem,2vw,2rem)] text-center",
         "shadow-[0_28px_90px_rgba(31,41,55,0.14)] backdrop-blur-xl",
-        "max-xl:w-[315px] max-xl:p-7",
-        "max-lg:w-[300px] max-lg:p-6",
-        "max-md:w-[min(330px,calc(100vw-40px))] max-md:p-7",
-        "max-sm:p-6"
+        "max-lg:w-[min(330px,calc(100vw-2.5rem))]"
       )}
     >
       <div

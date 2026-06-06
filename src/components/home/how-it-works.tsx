@@ -110,7 +110,7 @@ export function HowItWorks() {
           <ScrollReveal delay={0.05}>
             <h2
               id="how-it-works-title"
-              className="mt-7 text-[clamp(3rem,5vw,5.5rem)] font-extrabold leading-[1.02] tracking-[-0.05em] text-slate-950"
+              className="mt-7 text-[clamp(2.2rem,4vw,4.8rem)] font-extrabold leading-[1.02] tracking-[-0.05em] text-slate-950"
             >
               How it works
             </h2>

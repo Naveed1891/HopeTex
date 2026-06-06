@@ -134,12 +134,7 @@ function WideMegaPanel({
           <p className="mb-6 text-[11px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">
             {group.label}
           </p>
-          <ul
-            className="grid list-none gap-6 p-0 m-0"
-            style={{
-              gridTemplateColumns: "repeat(2, minmax(220px, 1fr))",
-            }}
-          >
+          <ul className="grid list-none grid-cols-1 gap-4 p-0 m-0 sm:grid-cols-2 sm:gap-6">
             {links.map((link) => (
               <li key={link.href} className="min-w-0">
                 <ServiceLinkCard link={link} onClose={onClose} />
@@ -169,7 +164,7 @@ function CompactMegaPanel({
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: 6 }}
       transition={transitionBase}
-      className="min-w-[280px] overflow-hidden rounded-xl border border-border bg-popover p-3 shadow-xl"
+      className="max-w-[min(100vw-2rem,320px)] overflow-hidden rounded-xl border border-border bg-popover p-3 shadow-xl"
     >
       <ul className="space-y-1">
         {links.map((link) => (
@@ -210,8 +205,17 @@ function MegaPanel({ group, onClose }: { group: NavGroup; onClose: () => void })
   return <CompactMegaPanel group={group} onClose={onClose} />;
 }
 
-function NavItem({ group }: { group: NavGroup }) {
-  const [open, setOpen] = useState(false);
+function NavItem({
+  group,
+  alignRight = false,
+  isOpen,
+  onOpenChange,
+}: {
+  group: NavGroup;
+  alignRight?: boolean;
+  isOpen: boolean;
+  onOpenChange: (open: boolean) => void;
+}) {
   const pathname = usePathname();
   const ref = useRef<HTMLDivElement>(null);
   const hasDropdown = Boolean(group.columns?.length || group.links?.length);
@@ -220,16 +224,16 @@ function NavItem({ group }: { group: NavGroup }) {
     group.columns?.some((c) => c.links.some((l) => l.href === pathname)) ||
     group.links?.some((l) => l.href === pathname);
 
-  const close = useCallback(() => setOpen(false), []);
+  const close = useCallback(() => onOpenChange(false), [onOpenChange]);
 
   useEffect(() => {
-    if (!open) return;
+    if (!isOpen) return;
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") close();
     };
     document.addEventListener("keydown", onKey);
     return () => document.removeEventListener("keydown", onKey);
-  }, [open, close]);
+  }, [isOpen, close]);
 
   useEffect(() => {
     close();
@@ -247,30 +251,35 @@ function NavItem({ group }: { group: NavGroup }) {
     <div
       ref={ref}
       className="relative"
-      onMouseEnter={() => setOpen(true)}
-      onMouseLeave={() => setOpen(false)}
+      onMouseEnter={() => onOpenChange(true)}
+      onMouseLeave={() => onOpenChange(false)}
     >
       <button
         type="button"
         className={cn(
-          mainNavLinkClass(open || isActive),
+          mainNavLinkClass(isOpen || isActive),
           "inline-flex items-center gap-1 border-0 bg-transparent"
         )}
-        aria-expanded={open}
+        aria-expanded={isOpen}
         aria-haspopup="true"
-        onClick={() => setOpen((v) => !v)}
+        onClick={() => onOpenChange(!isOpen)}
       >
         {group.label}
         <ChevronDown
           className={cn(
             "h-3.5 w-3.5 transition-transform duration-200",
-            open && "rotate-180"
+            isOpen && "rotate-180"
           )}
         />
       </button>
       <AnimatePresence>
-        {open && (
-          <div className="absolute left-0 top-full z-[100] pt-3">
+        {isOpen && (
+          <div
+            className={cn(
+              "absolute top-full z-[100] max-h-[min(70vh,calc(100svh-6rem))] max-w-[calc(100vw-2rem)] overflow-y-auto pt-3",
+              alignRight ? "right-0 left-auto" : "left-0"
+            )}
+          >
             <MegaPanel group={group} onClose={close} />
           </div>
         )}
@@ -280,10 +289,18 @@ function NavItem({ group }: { group: NavGroup }) {
 }
 
 export function MegaMenu() {
+  const [openLabel, setOpenLabel] = useState<string | null>(null);
+
   return (
     <>
-      {mainNavigation.map((group) => (
-        <NavItem key={group.label} group={group} />
+      {mainNavigation.map((group, index) => (
+        <NavItem
+          key={group.label}
+          group={group}
+          alignRight={index >= mainNavigation.length - 2}
+          isOpen={openLabel === group.label}
+          onOpenChange={(open) => setOpenLabel(open ? group.label : null)}
+        />
       ))}
     </>
   );

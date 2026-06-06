@@ -132,7 +132,7 @@ export function EmpowerBusinessSection() {
     >
       <SectionBackgroundDecor />
 
-      <div className="relative mx-auto max-w-[1500px] px-5 sm:px-8 lg:px-10">
+      <div className="relative mx-auto max-w-[1440px] px-5 sm:px-8 lg:px-10 xl:px-12">
         <ScrollReveal>
           <div className="ebs-banner">
             <BannerDecor />

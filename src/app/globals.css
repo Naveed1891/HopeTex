@@ -52,8 +52,8 @@
 
   --spacing-section: clamp(5rem, 10vw, 8rem);
   --spacing-block: clamp(2rem, 4vw, 3.5rem);
-  --width-content: 68rem;
-  --width-wide: 80rem;
+  --width-content: 77.5rem;
+  --width-wide: 90rem;
 
   --text-display: clamp(2.75rem, 5.5vw, 4.5rem);
   --text-h1: clamp(2.25rem, 4vw, 3.25rem);
@@ -252,6 +252,20 @@
   .container-wide {
     width: min(100% - 2.5rem, var(--width-wide));
     margin-inline: auto;
+  }
+
+  .container-section {
+    width: 100%;
+    max-width: 80rem;
+    margin-inline: auto;
+    padding-inline: clamp(1.25rem, 3vw, 3rem);
+  }
+
+  .container-section-wide {
+    width: 100%;
+    max-width: 90rem;
+    margin-inline: auto;
+    padding-inline: clamp(1.25rem, 3vw, 3rem);
   }
 
   .text-display {
@@ -459,28 +473,19 @@
       var(--elevation-sm);
   }
 
-  /* Homepage hero — compact cards on narrow two-column widths */
-  @media (min-width: 900px) and (max-width: 1100px) {
+  /* Homepage hero — fluid cards on narrow two-column widths */
+  @media (min-width: 1024px) and (max-width: 1280px) {
     .hero-inner {
-      gap: 3rem;
+      gap: 2.75rem;
     }
 
     .hero-cards {
-      flex-direction: row;
-      justify-content: center;
       gap: 1.25rem;
-    }
-
-    .hero-process-card {
-      width: 330px;
-    }
-
-    .hero-success-card {
-      width: 300px;
+      translate: clamp(0.5rem, 1.5vw, 1.25rem) 0;
     }
   }
 
-  @media (max-width: 899px) {
+  @media (max-width: 1023px) {
     .hero-inner {
       grid-template-columns: 1fr;
     }
@@ -493,6 +498,7 @@
 
     .hero-cards {
       justify-content: center;
+      translate: 0 0;
     }
   }
 
@@ -512,6 +518,10 @@
       linear-gradient(to bottom, transparent 0%, black 12%, black 80%, transparent 100%);
     -webkit-mask-composite: source-in;
     mask-composite: intersect;
+  }
+
+  .hero-statue-image {
+    object-position: 74% center;
   }
 
   .site-header-bar {
@@ -1270,7 +1280,6 @@
     line-height: 1.12;
     letter-spacing: -0.035em;
     color: #0f172a;
-    text-wrap: balance;
   }
 
   .feature-row-divider {
@@ -2061,12 +2070,11 @@
 
   .ebs-banner__heading {
     margin-top: 1.25rem;
-    font-size: clamp(2.5rem, 4.6vw, 5rem);
+    font-size: clamp(2.2rem, 4vw, 4.8rem);
     font-weight: 800;
     line-height: 1.08;
     letter-spacing: -0.045em;
     color: #0f172a;
-    text-wrap: balance;
   }
 
   .ebs-banner__subtitle {

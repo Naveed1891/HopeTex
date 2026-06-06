@@ -26,11 +26,9 @@ export function CinematicHero() {
 
       <div
         className={cn(
-          "hero-inner relative z-10 mx-auto grid min-h-[760px] w-full min-w-0 max-w-[1440px] grid-cols-1 items-center gap-12 px-5 py-20",
-          "sm:px-8",
-          "lg:grid-cols-[minmax(640px,0.86fr)_minmax(680px,1.14fr)] lg:gap-12 lg:px-10 lg:py-24",
-          "xl:gap-14 xl:px-12",
-          "2xl:max-w-[1480px] 2xl:px-14"
+          "hero-inner relative z-10 mx-auto grid w-full min-w-0 max-w-[1440px] grid-cols-1 items-center gap-10 px-5 py-16",
+          "min-h-0 sm:px-8 lg:min-h-[760px] lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:gap-12 lg:px-10 lg:py-20",
+          "xl:gap-14 xl:px-12"
         )}
       >
         <m.div
@@ -39,36 +37,34 @@ export function CinematicHero() {
           variants={staggerContainer}
           className={cn(
             "hero-copy relative z-20 w-full min-w-0 max-w-[720px] justify-self-start overflow-visible text-left",
-            "max-md:mx-auto max-md:text-center"
+            "max-lg:mx-auto max-lg:text-center"
           )}
         >
-          <m.span variants={fadeUp} className="ref-badge mb-6 max-md:mx-auto">
+          <m.span variants={fadeUp} className="ref-badge mb-6 max-lg:mx-auto">
             <Crown className="h-4 w-4 shrink-0 text-purple-700" aria-hidden />
             #1 US COMPANY FORMATION SERVICE
           </m.span>
           <h1
             id="cinematic-hero-title"
             className={cn(
-              "hero-title max-w-[720px] overflow-visible text-[clamp(3.2rem,4.15vw,5.25rem)] font-extrabold leading-[1.02] tracking-[-0.052em] text-slate-950",
-              "max-md:mx-auto max-md:text-[clamp(2.15rem,7.5vw,2.85rem)]"
+              "hero-title max-w-[720px] overflow-visible text-[clamp(3.1rem,4vw,5.25rem)] font-extrabold leading-[1.03] tracking-[-0.052em] text-slate-950",
+              "max-sm:text-[clamp(2.15rem,7.5vw,2.85rem)] max-lg:mx-auto"
             )}
           >
-            <span className="block whitespace-nowrap max-sm:whitespace-normal">
+            <span className="block">
               Start Your{" "}
               <span className="hero-gradient-text">US LLC</span>
             </span>
-            <span className="block whitespace-nowrap max-sm:whitespace-normal">
+            <span className="block">
               &{" "}
               <span className="hero-gradient-text">Global Business</span>
             </span>
-            <span className="block whitespace-nowrap max-sm:whitespace-normal">
-              with HopeTex
-            </span>
+            <span className="block">with HopeTex</span>
           </h1>
           <p
             className={cn(
-              "hero-subtitle mt-6 max-w-[620px] text-lg leading-[1.75] tracking-[-0.01em] text-slate-600 sm:text-xl",
-              "max-md:mx-auto max-md:text-base max-md:leading-[1.7]"
+              "hero-subtitle mt-6 max-w-[620px] text-[clamp(1rem,1.2vw,1.25rem)] leading-[1.75] tracking-[-0.01em] text-slate-600",
+              "max-lg:mx-auto max-lg:leading-[1.7]"
             )}
           >
             Launch, manage, and scale your business across the US, UK, and global markets with
@@ -78,7 +74,7 @@ export function CinematicHero() {
             variants={fadeUp}
             className={cn(
               "mt-9 flex flex-wrap items-center gap-4",
-              "max-md:justify-center max-sm:flex-col max-sm:items-stretch"
+              "max-lg:justify-center max-sm:flex-col max-sm:items-stretch"
             )}
           >
             <Button variant="premium" size="lg" className="w-full sm:w-auto" asChild>
@@ -95,7 +91,7 @@ export function CinematicHero() {
             variants={fadeUp}
             className={cn(
               "type-label mt-8 flex items-center gap-3 text-sm text-muted-foreground",
-              "max-md:justify-center"
+              "max-lg:justify-center"
             )}
           >
             <Link href={routes.client.login} className="text-brand-secondary hover:underline">

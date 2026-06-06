@@ -15,8 +15,8 @@ export function HeroVisual() {
   return (
     <m.div
       className={cn(
-        "hero-visual relative z-10 min-h-[560px] w-full min-w-0 overflow-visible",
-        "max-xl:min-h-[560px] max-lg:min-h-[520px] max-md:min-h-[720px]"
+        "hero-visual relative z-10 flex min-h-[480px] w-full min-w-0 items-center justify-center overflow-visible",
+        "max-lg:min-h-[520px] lg:min-h-[560px]"
       )}
       aria-hidden
       initial={reduced ? false : { opacity: 0, y: 18 }}
@@ -25,8 +25,8 @@ export function HeroVisual() {
     >
       <div
         className={cn(
-          "hero-statue-layer pointer-events-none absolute inset-y-[-90px] right-[-70px] z-0 hidden w-[680px] lg:block",
-          "xl:right-[-90px] xl:w-[720px]"
+          "hero-statue-layer pointer-events-none absolute inset-y-[-4rem] right-[-3rem] z-0 hidden w-[clamp(520px,38vw,680px)] max-w-[680px] lg:block",
+          "xl:inset-y-[-5rem] xl:right-[-3.5rem]"
         )}
         aria-hidden
       >
@@ -36,9 +36,8 @@ export function HeroVisual() {
           fill
           priority
           quality={85}
-          sizes="680px"
-          className="object-cover opacity-[0.76]"
-          style={{ objectPosition: "76% center" }}
+          sizes="(min-width: 1024px) 680px, 0px"
+          className="hero-statue-image object-cover opacity-[0.72]"
         />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_78%_48%,transparent_0%,transparent_42%,rgba(255,255,255,0.72)_70%,rgba(255,255,255,0.96)_100%)]" />
         <div className="absolute inset-y-0 left-0 w-[45%] bg-gradient-to-r from-white via-white/80 to-transparent" />
@@ -49,14 +48,13 @@ export function HeroVisual() {
 
       <div
         className={cn(
-          "visual-cards hero-cards relative z-20 flex min-h-[560px] w-full items-center justify-center gap-6",
-          "lg:-translate-x-12 xl:-translate-x-16 xl:gap-7 2xl:-translate-x-20",
-          "max-xl:min-h-[560px] max-lg:min-h-[530px] max-lg:gap-5",
-          "max-md:min-h-0 max-md:translate-x-0 max-md:flex-col max-md:gap-5"
+          "visual-cards hero-cards relative z-20 mx-auto flex w-full max-w-[720px] min-w-0 items-center justify-center gap-[clamp(1rem,2.5vw,1.75rem)]",
+          "translate-x-[clamp(0rem,2.5vw,2.25rem)]",
+          "max-lg:translate-x-0 max-lg:flex-col max-lg:gap-5"
         )}
       >
         <HeroProcessCard />
-        <div className="shrink-0 min-[900px]:mt-8 max-md:mt-0 max-md:flex max-md:w-full max-md:justify-center">
+        <div className="shrink-0 max-lg:flex max-lg:w-full max-lg:justify-center lg:mt-8">
           <HeroSuccessCard />
         </div>
       </div>

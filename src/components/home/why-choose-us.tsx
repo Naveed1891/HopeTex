@@ -186,7 +186,7 @@ export function WhyChooseUs() {
           <ScrollReveal>
             <h2
               id="why-choose-us-title"
-              className="text-[clamp(3rem,5vw,5.4rem)] font-extrabold leading-[1.02] tracking-[-0.05em] text-slate-950"
+              className="text-[clamp(2.2rem,4vw,4.8rem)] font-extrabold leading-[1.02] tracking-[-0.05em] text-slate-950"
             >
               Why{" "}
               <span className="bg-gradient-to-r from-purple-700 via-violet-600 to-sky-500 bg-clip-text text-transparent">

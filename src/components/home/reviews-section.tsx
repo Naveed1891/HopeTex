@@ -193,7 +193,7 @@ function TestimonialCard({
           className="h-5 w-5 fill-violet-100 text-violet-500"
           aria-hidden
         />
-        <p className="mt-3 text-sm leading-relaxed text-slate-600">
+        <p className="mt-3 break-words text-sm leading-relaxed text-slate-600">
           {testimonial.quote}
         </p>
         <div className="mt-5 flex items-center gap-3">
@@ -292,7 +292,7 @@ export function ReviewsSection() {
       className="relative overflow-hidden bg-[linear-gradient(120deg,#fbf7ff_0%,#ffffff_38%,#eef7ff_72%,#e7f7ff_100%)] px-4 py-10 sm:px-6 lg:px-8"
       aria-labelledby="reviews-section-title"
     >
-      <div className="relative mx-auto max-w-[1500px] overflow-hidden rounded-[34px] border border-white/80 bg-white/70 px-5 py-10 shadow-[0_28px_90px_rgba(31,41,55,.09)] backdrop-blur-xl sm:px-8 sm:py-11 lg:px-14 lg:py-14">
+      <div className="relative mx-auto max-w-[1440px] overflow-hidden rounded-[34px] border border-white/80 bg-white/70 px-5 py-10 shadow-[0_28px_90px_rgba(31,41,55,.09)] backdrop-blur-xl sm:px-8 sm:py-11 lg:px-10 lg:py-12 xl:px-12">
         <PanelDecor />
 
         <div className="relative z-10 grid items-center gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:gap-10">
@@ -307,7 +307,7 @@ export function ReviewsSection() {
             <ScrollReveal delay={0.05}>
               <h2
                 id="reviews-section-title"
-                className="mt-5 text-[clamp(2.6rem,5vw,5.8rem)] font-extrabold leading-[0.95] tracking-[-0.055em] text-slate-950"
+                className="mt-5 text-[clamp(2.2rem,4vw,4.8rem)] font-extrabold leading-[0.98] tracking-[-0.055em] text-slate-950"
               >
                 Loved by
                 <br />

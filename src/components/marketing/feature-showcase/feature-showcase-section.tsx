@@ -22,7 +22,7 @@ export function FeatureShowcaseSection() {
         aria-hidden
       />
 
-      <div className="relative mx-auto w-full max-w-[1400px] px-6 sm:px-8 lg:px-10">
+      <div className="relative mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-10 xl:px-12">
         <h2 id="feature-showcase-heading" className="sr-only">
           Platform capabilities
         </h2>

@@ -113,7 +113,7 @@ function CredentialCard({ credential, index }: { credential: Credential; index: 
       <article
         className={cn(
           "group relative flex h-full flex-col overflow-hidden rounded-[30px]",
-          "border border-purple-100/80 bg-white/78 p-9 text-center sm:p-10",
+          "border border-purple-100/80 bg-white/78 p-7 text-center sm:p-9 lg:p-10",
           "shadow-[0_24px_80px_rgba(31,41,55,.09)] backdrop-blur-xl",
           "transition-all duration-300 ease-out",
           "hover:-translate-y-1.5 hover:border-purple-300/80",
@@ -174,7 +174,7 @@ export function TrustedCredentials() {
           <ScrollReveal delay={0.05}>
             <h2
               id="trusted-credentials-title"
-              className="mt-7 text-[clamp(2.8rem,5vw,5.3rem)] font-extrabold leading-[1.03] tracking-[-0.05em] text-slate-950"
+              className="mt-7 text-[clamp(2.2rem,4vw,4.8rem)] font-extrabold leading-[1.03] tracking-[-0.05em] text-slate-950"
             >
               Certified.{" "}
               <span className="bg-gradient-to-r from-purple-700 via-violet-600 to-sky-500 bg-clip-text text-transparent">

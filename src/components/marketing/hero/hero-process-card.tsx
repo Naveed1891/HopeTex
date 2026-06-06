@@ -43,12 +43,9 @@ export function HeroProcessCard() {
   return (
     <div
       className={cn(
-        "hero-process-card w-[360px] shrink-0 rounded-[28px] border border-white/80 bg-white/85 p-8",
+        "hero-process-card w-[clamp(300px,23vw,360px)] max-w-full shrink-0 rounded-[28px] border border-white/80 bg-white/85 p-[clamp(1.5rem,2vw,2rem)]",
         "shadow-[0_28px_90px_rgba(31,41,55,0.14)] backdrop-blur-xl",
-        "max-xl:w-[345px] max-xl:p-7",
-        "max-lg:w-[330px] max-lg:p-6",
-        "max-md:w-[min(360px,calc(100vw-40px))] max-md:p-7",
-        "max-sm:p-6"
+        "max-lg:w-[min(360px,calc(100vw-2.5rem))]"
       )}
     >
       <h3 className="mb-6 text-base font-extrabold tracking-tight text-foreground max-lg:mb-5 max-lg:text-[0.9375rem]">

@@ -247,7 +247,7 @@ function OfficeMapVisual() {
 export function SiteFooter() {
   return (
     <footer className="site-footer relative mt-auto overflow-hidden bg-[linear-gradient(120deg,#fbf7ff_0%,#ffffff_45%,#e7f7ff_100%)] px-4 py-8 sm:px-6 lg:px-8">
-      <div className="relative mx-auto max-w-[1560px] overflow-hidden rounded-[38px] border border-white/80 bg-white/82 px-6 py-7 shadow-[0_28px_90px_rgba(31,41,55,.10)] backdrop-blur-xl sm:px-9 lg:px-11">
+      <div className="relative mx-auto max-w-[1440px] overflow-hidden rounded-[38px] border border-white/80 bg-white/82 px-5 py-7 shadow-[0_28px_90px_rgba(31,41,55,.10)] backdrop-blur-xl sm:px-8 lg:px-10 xl:px-12">
         <div
           className="pointer-events-none absolute -left-20 bottom-0 h-44 w-44 rounded-full bg-violet-300/18 blur-3xl"
           aria-hidden
@@ -258,7 +258,7 @@ export function SiteFooter() {
         />
 
         <div className="relative z-[1]">
-          <div className="grid gap-8 lg:grid-cols-2 lg:gap-x-10 xl:grid-cols-[1.3fr_0.8fr_1fr_0.9fr_0.8fr] xl:gap-8">
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 lg:gap-x-8 xl:grid-cols-[1.3fr_0.8fr_1fr_0.9fr_0.8fr] xl:gap-8">
             <div className="min-w-0">
               <Logo />
               
@@ -312,7 +312,7 @@ export function SiteFooter() {
                       </p>
                       <p className="mt-1 flex items-start gap-1.5 text-sm leading-relaxed text-slate-600">
                         <MapPin className="mt-0.5 h-3.5 w-3.5 shrink-0 text-violet-500" aria-hidden />
-                        <span>{office.address}</span>
+                        <span className="break-words">{office.address}</span>
                       </p>
                       {office.extra && (
                         <p className="mt-1 text-sm font-medium text-sky-600">{office.extra}</p>

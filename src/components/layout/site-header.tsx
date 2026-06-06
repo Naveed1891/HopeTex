@@ -15,7 +15,7 @@ export function SiteHeader() {
     <header className="sticky top-0 z-50 w-full overflow-visible">
       <AnnouncementBanner />
       <div className="site-header-bar overflow-visible">
-        <div className="header-inner mx-auto flex h-[4.125rem] w-full min-w-0 max-w-[1440px] items-center gap-2 overflow-visible px-4 sm:gap-3 sm:px-6 lg:h-[4.25rem] lg:gap-3 lg:px-8">
+        <div className="header-inner mx-auto flex h-[4.125rem] w-full min-w-0 max-w-[1440px] items-center gap-2 overflow-visible px-4 sm:gap-3 sm:px-6 lg:h-[4.25rem] lg:gap-3 lg:px-8 xl:px-10">
           <Logo className="shrink-0 lg:-ml-0.5" />
 
           <div className="hidden min-w-0 flex-1 justify-center overflow-visible min-[900px]:flex">

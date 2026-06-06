@@ -183,7 +183,7 @@ export function FaqSection() {
     >
       <SectionBackgroundDecor />
 
-      <div className="relative mx-auto grid max-w-[1400px] grid-cols-1 gap-12 px-5 sm:px-8 lg:grid-cols-[0.82fr_1.18fr] lg:items-start lg:gap-16 lg:px-10">
+      <div className="relative mx-auto grid max-w-[1320px] grid-cols-1 gap-12 px-5 sm:px-8 lg:grid-cols-[minmax(0,0.82fr)_minmax(0,1.18fr)] lg:items-start lg:gap-16 lg:px-10 xl:px-12">
         <aside className="hfaq-intro lg:sticky lg:top-28">
           <ScrollReveal>
             <span className="hfaq-badge">
@@ -192,7 +192,7 @@ export function FaqSection() {
             </span>
             <h2
               id="home-faq-title"
-              className="mt-7 text-[clamp(3rem,5vw,5.6rem)] font-extrabold leading-[1.02] tracking-[-0.05em] text-slate-950"
+              className="mt-7 text-[clamp(2.2rem,4vw,4.8rem)] font-extrabold leading-[1.02] tracking-[-0.05em] text-slate-950"
             >
               Frequently
               <br />

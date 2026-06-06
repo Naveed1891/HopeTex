@@ -20,7 +20,7 @@ export function TrustedByFounders() {
         aria-hidden
       />
 
-      <div className="relative mx-auto max-w-[1440px] px-6">
+      <div className="relative mx-auto max-w-[1440px] px-5 sm:px-8 lg:px-10 xl:px-12">
         <div className="mx-auto max-w-3xl text-center">
           <div className="ref-badge mx-auto">Trusted by Founders</div>
 
