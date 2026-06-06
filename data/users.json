@@ -1,0 +1,25 @@
+{
+  "users": [
+    {
+      "id": "usr_a7be66e9f628441ae95056cd",
+      "name": "Naveed",
+      "email": "naveed@hopetexx.com",
+      "passwordHash": "ddc85f2dbaa031d66de1fdeb85085f5a:6221f9e5e8fe983e256871768cab7aec86edc471a66113ef2bb5f97ff9ced4e846acf1770e21d36b5af2f71b3d2d8c6ac992c59f744b9ea46cea1a11c136a17b",
+      "emailVerified": true,
+      "createdAt": 1780506908116,
+      "updatedAt": 1780507488315
+    },
+    {
+      "id": "usr_e782ba0d263fb904fc8d7011",
+      "name": "HT0053",
+      "email": "hopetexsol@gmail.com",
+      "passwordHash": "725e1f4caf6fb2250d513e6bd19077ec:a7a046222a2e7ee4ae00f1f79dd7a8053fdc54a554f58a878219182ef8f420e33fb37d8068088d31d30709fc907e9d80f1a0daa7f403123d97c4b73f7b79905f",
+      "emailVerified": false,
+      "createdAt": 1780506989323,
+      "updatedAt": 1780506989370,
+      "otpHash": "63a38c3f3091df2e7f24d6209de2eaea29303ad2faf4317c7998646cb6e711fb",
+      "otpExpiresAt": 1780507889370,
+      "verifyToken": "5d2bfdbb2fcb40099ccdc81bc71f7f9ae0dec5885b999a5f"
+    }
+  ]
+}

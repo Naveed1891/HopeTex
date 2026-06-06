@@ -1,0 +1,6 @@
+{
+  "to": "naveed@hopetexx.com",
+  "otp": "863548",
+  "verifyUrl": "http://localhost:3000/api/auth/verify-link?token=3bd924d5be343e9683b78e1b5d57e65ffd26364e9c37e90c",
+  "sentAt": "2026-06-03T17:24:21.390Z"
+}
