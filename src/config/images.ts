@@ -4,6 +4,8 @@
 export const brandHubImage = "/favicon.png" as const;
 
 export const marketingImages = {
+  /** Homepage hero — pre-blended right-side visual (cards, statue, left fade) */
+  heroRightVisual: "/images/hero/hero-right-visual.png",
   /** Homepage hero — skyline / Statue of Liberty only (no UI baked in) */
   heroSkylineStatue: "/images/hero/usa-skyline-statue.png",
   brand: {

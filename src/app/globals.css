@@ -389,7 +389,7 @@
   @keyframes heroFadeUp {
     from {
       opacity: 0;
-      transform: translateY(18px);
+      transform: translateY(14px);
     }
     to {
       opacity: 1;
@@ -397,43 +397,18 @@
     }
   }
 
-  @keyframes gradientShift {
-    0% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-    100% {
-      background-position: 0% 50%;
-    }
-  }
-
-  .hero-title {
-    animation: heroFadeUp 700ms ease-out both;
-  }
-
   .hero-subtitle {
     animation: heroFadeUp 700ms ease-out 140ms both;
   }
 
-  .hero-gradient-text {
-    display: inline-block;
-    padding-right: 0.25rem;
-    background: linear-gradient(90deg, #7e22ce, #7c3aed, #0ea5e9, #7c3aed);
-    background-size: 220% 220%;
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    -webkit-box-decoration-break: clone;
-    box-decoration-break: clone;
-    animation: gradientShift 7s ease infinite;
+  .hero-section {
+    clip-path: none;
+    -webkit-mask-image: none;
+    mask-image: none;
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .hero-title,
-    .hero-subtitle,
-    .hero-gradient-text {
+    .hero-subtitle {
       animation: none !important;
     }
   }
@@ -471,57 +446,6 @@
     box-shadow:
       0 1px 0 color-mix(in oklab, var(--border) 55%, transparent),
       var(--elevation-sm);
-  }
-
-  /* Homepage hero — fluid cards on narrow two-column widths */
-  @media (min-width: 1024px) and (max-width: 1280px) {
-    .hero-inner {
-      gap: 2.75rem;
-    }
-
-    .hero-cards {
-      gap: 1.25rem;
-      translate: clamp(0.5rem, 1.5vw, 1.25rem) 0;
-    }
-  }
-
-  @media (max-width: 1023px) {
-    .hero-inner {
-      grid-template-columns: 1fr;
-    }
-
-    .hero-copy {
-      text-align: center;
-      margin-inline: auto;
-      overflow: visible;
-    }
-
-    .hero-cards {
-      justify-content: center;
-      translate: 0 0;
-    }
-  }
-
-  @media (max-width: 767px) {
-    .hero-cards {
-      flex-direction: column;
-      align-items: center;
-    }
-  }
-
-  .hero-statue-layer {
-    -webkit-mask-image:
-      linear-gradient(to right, transparent 0%, black 18%, black 76%, transparent 100%),
-      linear-gradient(to bottom, transparent 0%, black 12%, black 80%, transparent 100%);
-    mask-image:
-      linear-gradient(to right, transparent 0%, black 18%, black 76%, transparent 100%),
-      linear-gradient(to bottom, transparent 0%, black 12%, black 80%, transparent 100%);
-    -webkit-mask-composite: source-in;
-    mask-composite: intersect;
-  }
-
-  .hero-statue-image {
-    object-position: 74% center;
   }
 
   .site-header-bar {
