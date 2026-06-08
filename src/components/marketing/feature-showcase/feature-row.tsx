@@ -67,6 +67,7 @@ export function FeatureRow({
               height={560}
               priority={imagePriority}
               quality={85}
+              unoptimized={imageSrc.endsWith(".webp")}
               loading={imagePriority ? undefined : "lazy"}
               className="feature-row-visual__img"
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 48vw, 560px"

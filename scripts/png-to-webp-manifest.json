@@ -1,0 +1,139 @@
+{
+  "converted": [
+    {
+      "pngPath": "public\\images\\credentials\\acsp-logo.png",
+      "webpPath": "public\\images\\credentials\\acsp-logo.webp",
+      "hasAlpha": true
+    },
+    {
+      "pngPath": "public\\images\\credentials\\caa-logo.png",
+      "webpPath": "public\\images\\credentials\\caa-logo.webp",
+      "hasAlpha": true
+    },
+    {
+      "pngPath": "public\\images\\credentials\\irs-logo.png",
+      "webpPath": "public\\images\\credentials\\irs-logo.webp",
+      "hasAlpha": true
+    },
+    {
+      "pngPath": "public\\images\\hero\\hero-right-visual.png",
+      "webpPath": "public\\images\\hero\\hero-right-visual.webp",
+      "hasAlpha": false
+    },
+    {
+      "pngPath": "public\\images\\hero\\usa-formation-blend.png",
+      "webpPath": "public\\images\\hero\\usa-formation-blend.webp",
+      "hasAlpha": false
+    },
+    {
+      "pngPath": "public\\images\\hero\\usa-formation-hero.png",
+      "webpPath": "public\\images\\hero\\usa-formation-hero.webp",
+      "hasAlpha": false
+    },
+    {
+      "pngPath": "public\\images\\hero\\usa-skyline-statue.png",
+      "webpPath": "public\\images\\hero\\usa-skyline-statue.webp",
+      "hasAlpha": false
+    },
+    {
+      "pngPath": "public\\images\\marketing\\features\\address-contact.png",
+      "webpPath": "public\\images\\marketing\\features\\address-contact.webp",
+      "hasAlpha": true
+    },
+    {
+      "pngPath": "public\\images\\marketing\\features\\banking-payments.png",
+      "webpPath": "public\\images\\marketing\\features\\banking-payments.webp",
+      "hasAlpha": true
+    },
+    {
+      "pngPath": "public\\images\\slides\\Airwallex.png",
+      "webpPath": "public\\images\\slides\\Airwallex.webp",
+      "hasAlpha": true
+    },
+    {
+      "pngPath": "public\\images\\slides\\Brex.png",
+      "webpPath": "public\\images\\slides\\Brex.webp",
+      "hasAlpha": true
+    },
+    {
+      "pngPath": "public\\images\\slides\\Mercury.png",
+      "webpPath": "public\\images\\slides\\Mercury.webp",
+      "hasAlpha": true
+    },
+    {
+      "pngPath": "public\\images\\slides\\Payoneer.png",
+      "webpPath": "public\\images\\slides\\Payoneer.webp",
+      "hasAlpha": true
+    },
+    {
+      "pngPath": "public\\images\\slides\\Paypal.png",
+      "webpPath": "public\\images\\slides\\Paypal.webp",
+      "hasAlpha": true
+    },
+    {
+      "pngPath": "public\\images\\slides\\Perfect Money.png",
+      "webpPath": "public\\images\\slides\\Perfect Money.webp",
+      "hasAlpha": true
+    },
+    {
+      "pngPath": "public\\images\\slides\\Ping Pong.png",
+      "webpPath": "public\\images\\slides\\Ping Pong.webp",
+      "hasAlpha": true
+    },
+    {
+      "pngPath": "public\\images\\slides\\Revolt.png",
+      "webpPath": "public\\images\\slides\\Revolt.webp",
+      "hasAlpha": true
+    },
+    {
+      "pngPath": "public\\images\\slides\\Slash.png",
+      "webpPath": "public\\images\\slides\\Slash.webp",
+      "hasAlpha": true
+    },
+    {
+      "pngPath": "public\\images\\slides\\Stripe.png",
+      "webpPath": "public\\images\\slides\\Stripe.webp",
+      "hasAlpha": true
+    },
+    {
+      "pngPath": "public\\images\\slides\\SunRate.png",
+      "webpPath": "public\\images\\slides\\SunRate.webp",
+      "hasAlpha": true
+    },
+    {
+      "pngPath": "public\\images\\slides\\Tide.png",
+      "webpPath": "public\\images\\slides\\Tide.webp",
+      "hasAlpha": true
+    },
+    {
+      "pngPath": "public\\images\\slides\\World First.png",
+      "webpPath": "public\\images\\slides\\World First.webp",
+      "hasAlpha": true
+    },
+    {
+      "pngPath": "public\\images\\slides\\Zyla.png",
+      "webpPath": "public\\images\\slides\\Zyla.webp",
+      "hasAlpha": true
+    },
+    {
+      "pngPath": "public\\images\\slides\\wise.png",
+      "webpPath": "public\\images\\slides\\wise.webp",
+      "hasAlpha": true
+    }
+  ],
+  "skipped": [
+    {
+      "pngPath": "public\\favicon.png",
+      "reason": "protected file"
+    },
+    {
+      "pngPath": "public\\images\\brand\\hopetex-logo.png",
+      "reason": "protected file"
+    },
+    {
+      "pngPath": "public\\images\\brand\\hopetex-mark.png",
+      "reason": "protected file"
+    }
+  ],
+  "failed": []
+}

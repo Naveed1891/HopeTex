@@ -5,22 +5,22 @@ export const brandHubImage = "/favicon.png" as const;
 
 export const marketingImages = {
   /** Homepage hero — pre-blended right-side visual (cards, statue, left fade) */
-  heroRightVisual: "/images/hero/hero-right-visual.png",
+  heroRightVisual: "/images/hero/hero-right-visual.webp",
   /** Homepage hero — skyline / Statue of Liberty only (no UI baked in) */
-  heroSkylineStatue: "/images/hero/usa-skyline-statue.png",
+  heroSkylineStatue: "/images/hero/usa-skyline-statue.webp",
   brand: {
     icon: brandHubImage,
     mark: "/images/brand/hopetex-mark.png",
     logo: "/images/brand/hopetex-logo.png",
   },
   features: {
-    bankingPayments: "/images/marketing/features/banking-payments.png",
-    addressContact: "/images/marketing/features/address-contact.png",
+    bankingPayments: "/images/marketing/features/banking-payments.webp",
+    addressContact: "/images/marketing/features/address-contact.webp",
   },
   credentials: {
-    acsp: "/images/credentials/acsp-logo.png",
-    caa: "/images/credentials/caa-logo.png",
-    irs: "/images/credentials/irs-logo.png",
+    acsp: "/images/credentials/acsp-logo.webp",
+    caa: "/images/credentials/caa-logo.webp",
+    irs: "/images/credentials/irs-logo.webp",
   },
   partners: {
     mercury: "/images/partners/mercury.svg",
