@@ -1,4 +1,8 @@
-"""Remove checkerboard/light backgrounds from credential PNGs."""
+"""Remove checkerboard/light backgrounds from credential PNGs.
+
+Legacy maintenance script. Runtime assets use WebP in public/images/credentials/.
+If re-processing, output PNG then run: npm run convert:webp
+"""
 from __future__ import annotations
 
 from collections import deque

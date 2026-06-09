@@ -22,37 +22,25 @@ export function CinematicHero() {
         "bg-[linear-gradient(120deg,#fbf7ff_0%,#ffffff_42%,#e7f7ff_100%)]"
       )}
     >
-      <div
-        className="hero-artwork-layer pointer-events-none absolute inset-y-0 left-[26%] right-0 z-0 hidden lg:block"
-        aria-hidden
-      >
+      {/* Hero background artwork — full section, highest quality (unoptimized WebP) */}
+      <div className="pointer-events-none absolute inset-0 z-0" aria-hidden>
         <Image
           src={marketingImages.heroRightVisual}
           alt=""
           fill
           priority
-          quality={90}
-          sizes="(min-width: 1536px) 1180px, (min-width: 1024px) 74vw, 100vw"
-          className="object-cover"
-          style={{
-            objectPosition: "right center",
-            WebkitMaskImage:
-              "linear-gradient(to right, transparent 0%, rgba(0,0,0,0.2) 4%, rgba(0,0,0,0.55) 8%, rgba(0,0,0,0.88) 12%, #000 16%, #000 100%)",
-            maskImage:
-              "linear-gradient(to right, transparent 0%, rgba(0,0,0,0.2) 4%, rgba(0,0,0,0.55) 8%, rgba(0,0,0,0.88) 12%, #000 16%, #000 100%)",
-            WebkitMaskRepeat: "no-repeat",
-            maskRepeat: "no-repeat",
-          }}
+          fetchPriority="high"
+          unoptimized
+          sizes="100vw"
+          className="hero-artwork-image object-cover object-[right_center]"
         />
-        <div className="pointer-events-none absolute inset-y-0 left-[-120px] z-10 w-[200px] bg-white/95 blur-[56px]" />
-        <div className="pointer-events-none absolute left-0 top-0 z-10 h-[34%] w-[11%] bg-gradient-to-br from-white via-[#fbf7ff]/50 to-transparent" />
-        <div className="pointer-events-none absolute bottom-0 left-0 z-10 h-[34%] w-[11%] bg-gradient-to-tr from-white via-[#fbf7ff]/50 to-transparent" />
-        <div className="pointer-events-none absolute inset-x-0 top-0 z-10 h-[12%] bg-gradient-to-b from-[#f8f4ff]/40 to-transparent" />
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-[14%] bg-gradient-to-t from-[#e7f7ff]/35 to-transparent" />
-        <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-[5%] bg-gradient-to-l from-[#e7f7ff]/35 to-transparent" />
+        <div className="pointer-events-none absolute inset-0 z-[1] bg-[linear-gradient(90deg,#fbf7ff_0%,#fbf7ff_28%,rgba(251,247,255,0.92)_40%,rgba(251,247,255,0.5)_52%,rgba(251,247,255,0.12)_62%,transparent_75%)]" />
+        <div className="pointer-events-none absolute inset-x-0 top-0 z-[1] h-28 bg-gradient-to-b from-[#fbf7ff]/80 to-transparent max-lg:h-40 max-lg:from-[#fbf7ff]" />
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[1] h-36 bg-gradient-to-t from-[#e7f7ff] via-[#f8f4ff]/55 to-transparent" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 z-[1] w-20 bg-gradient-to-l from-[#e7f7ff]/45 to-transparent" />
       </div>
 
-      <div className="relative z-10 mx-auto flex min-h-[720px] w-full max-w-[1440px] items-center px-5 py-16 sm:px-8 lg:px-10 lg:py-20">
+      <div className="relative z-10 mx-auto flex min-h-[720px] w-full max-w-[1440px] flex-col justify-center px-5 py-16 sm:px-8 lg:px-10 lg:py-20">
         <div className="relative z-20 w-full max-w-[900px]">
             <m.span
               initial={reduced ? false : "hidden"}

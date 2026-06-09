@@ -407,6 +407,20 @@
     mask-image: none;
   }
 
+  .hero-artwork-layer {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+  }
+
+  .hero-artwork-image {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    transform: translateZ(0);
+    image-rendering: auto;
+    min-height: 100%;
+    min-width: 100%;
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .hero-subtitle {
       animation: none !important;

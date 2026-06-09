@@ -1,0 +1,344 @@
+// HopeTex platform — core backend schema (USA services, dashboard, CSM sync, admin).
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// ---------------------------------------------------------------------------
+// Enums
+// ---------------------------------------------------------------------------
+
+enum UserRole {
+  CLIENT
+  WEBSITE_ADMIN
+  SUPER_ADMIN
+}
+
+enum ServiceCategory {
+  USA
+  UK
+  INTERNATIONAL
+  COMPLIANCE
+}
+
+enum ApplicationStatus {
+  DRAFT
+  SUBMITTED
+  ORDER_CREATED
+  CANCELLED
+}
+
+enum OrderStatus {
+  DRAFT
+  PAYMENT_DUE
+  PAID
+  SENT_TO_CSM
+  IN_REVIEW
+  PROCESSING
+  COMPLETED
+  CANCELLED
+  REFUNDED
+}
+
+enum PaymentStatus {
+  DUE
+  PENDING_VERIFICATION
+  PAID
+  FAILED
+  REFUNDED
+  CANCELLED
+}
+
+enum TicketStatus {
+  OPEN
+  IN_PROGRESS
+  RESOLVED
+  CLOSED
+}
+
+enum TicketPriority {
+  LOW
+  MEDIUM
+  HIGH
+  URGENT
+}
+
+enum ComplaintStatus {
+  OPEN
+  IN_REVIEW
+  RESOLVED
+  CLOSED
+}
+
+enum CsmSyncDirection {
+  WEBSITE_TO_CSM
+  CSM_TO_WEBSITE
+}
+
+enum CsmSyncStatus {
+  SUCCESS
+  FAILED
+  PENDING
+}
+
+// ---------------------------------------------------------------------------
+// Models
+// ---------------------------------------------------------------------------
+
+model User {
+  id            String   @id @default(cuid())
+  email         String   @unique
+  passwordHash  String?
+  name          String?
+  phone         String?
+  role          UserRole @default(CLIENT)
+  emailVerified Boolean  @default(false)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  profile       Profile?
+  applications  Application[]
+  orders        Order[]
+  payments      Payment[]
+  tickets       Ticket[]
+  complaints    Complaint[]
+  notifications Notification[]
+  auditLogs     AuditLog[]     @relation("AuditActor")
+
+  @@map("users")
+}
+
+model Profile {
+  id          String   @id @default(cuid())
+  userId      String   @unique
+  firstName   String?
+  lastName    String?
+  companyName String?
+  country     String?
+  city        String?
+  address     String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("profiles")
+}
+
+model Service {
+  id           String          @id @default(cuid())
+  title        String
+  slug         String          @unique
+  category     ServiceCategory
+  description  String?
+  isActive     Boolean         @default(true)
+  displayOrder Int             @default(0)
+  createdAt    DateTime        @default(now())
+  updatedAt    DateTime        @updatedAt
+
+  packages     Package[]
+  applications Application[]
+  orders       Order[]
+
+  @@map("services")
+}
+
+model Package {
+  id               String   @id @default(cuid())
+  serviceId        String
+  name             String
+  slug             String
+  price            Decimal  @db.Decimal(10, 2)
+  currency         String   @default("USD")
+  oldPrice         Decimal? @db.Decimal(10, 2)
+  processingTime   String?
+  description      String?
+  features         Json
+  excludedFeatures Json?
+  badge            String?
+  isPopular        Boolean  @default(false)
+  isActive         Boolean  @default(true)
+  displayOrder     Int      @default(0)
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  service      Service       @relation(fields: [serviceId], references: [id], onDelete: Cascade)
+  applications Application[]
+  orders       Order[]
+
+  @@unique([serviceId, slug])
+  @@index([serviceId])
+  @@map("packages")
+}
+
+model Application {
+  id        String            @id @default(cuid())
+  userId    String
+  serviceId String
+  packageId String?
+  formData  Json
+  status    ApplicationStatus @default(DRAFT)
+  createdAt DateTime          @default(now())
+  updatedAt DateTime          @updatedAt
+
+  user    User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  service Service  @relation(fields: [serviceId], references: [id])
+  package Package? @relation(fields: [packageId], references: [id])
+  order   Order?
+
+  @@index([userId])
+  @@index([serviceId])
+  @@index([packageId])
+  @@index([status])
+  @@map("applications")
+}
+
+model Order {
+  id            String      @id @default(cuid())
+  orderNumber   String      @unique
+  userId        String
+  applicationId String?     @unique
+  serviceId     String
+  packageId     String?
+  status        OrderStatus @default(DRAFT)
+  totalAmount   Decimal     @db.Decimal(10, 2)
+  currency      String      @default("USD")
+  csmOrderId    String?
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+
+  user        User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+  application Application? @relation(fields: [applicationId], references: [id])
+  service     Service      @relation(fields: [serviceId], references: [id])
+  package     Package?     @relation(fields: [packageId], references: [id])
+  payments    Payment[]
+  tickets     Ticket[]
+  complaints  Complaint[]
+  csmSyncLogs CsmSyncLog[]
+
+  @@index([userId])
+  @@index([status])
+  @@index([csmOrderId])
+  @@map("orders")
+}
+
+model Payment {
+  id             String        @id @default(cuid())
+  orderId        String
+  userId         String
+  amount         Decimal       @db.Decimal(10, 2)
+  currency       String        @default("USD")
+  status         PaymentStatus @default(DUE)
+  method         String?
+  proofUrl       String?
+  transactionRef String?
+  paidAt         DateTime?
+  createdAt      DateTime      @default(now())
+  updatedAt      DateTime      @updatedAt
+
+  order Order @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  user  User  @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([orderId])
+  @@index([userId])
+  @@index([status])
+  @@map("payments")
+}
+
+model Ticket {
+  id        String         @id @default(cuid())
+  userId    String
+  orderId   String?
+  subject   String
+  message   String
+  status    TicketStatus   @default(OPEN)
+  priority  TicketPriority @default(MEDIUM)
+  createdAt DateTime       @default(now())
+  updatedAt DateTime       @updatedAt
+
+  user  User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  order Order? @relation(fields: [orderId], references: [id])
+
+  @@index([userId])
+  @@index([orderId])
+  @@index([status])
+  @@index([priority])
+  @@map("tickets")
+}
+
+model Complaint {
+  id        String          @id @default(cuid())
+  userId    String
+  orderId   String?
+  subject   String
+  message   String
+  status    ComplaintStatus @default(OPEN)
+  createdAt DateTime        @default(now())
+  updatedAt DateTime        @updatedAt
+
+  user  User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  order Order? @relation(fields: [orderId], references: [id])
+
+  @@index([userId])
+  @@index([orderId])
+  @@index([status])
+  @@map("complaints")
+}
+
+model Notification {
+  id        String   @id @default(cuid())
+  userId    String
+  title     String
+  message   String
+  isRead    Boolean  @default(false)
+  createdAt DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([isRead])
+  @@map("notifications")
+}
+
+model CsmSyncLog {
+  id        String           @id @default(cuid())
+  orderId   String?
+  direction CsmSyncDirection
+  status    CsmSyncStatus    @default(PENDING)
+  payload   Json?
+  response  Json?
+  error     String?
+  createdAt DateTime         @default(now())
+
+  order Order? @relation(fields: [orderId], references: [id])
+
+  @@index([orderId])
+  @@index([direction])
+  @@index([status])
+  @@map("csm_sync_logs")
+}
+
+model AuditLog {
+  id        String   @id @default(cuid())
+  actorId   String?
+  action    String
+  entity    String
+  entityId  String?
+  oldValue  Json?
+  newValue  Json?
+  ipAddress String?
+  createdAt DateTime @default(now())
+
+  actor User? @relation("AuditActor", fields: [actorId], references: [id])
+
+  @@index([actorId])
+  @@index([entity])
+  @@index([entityId])
+  @@index([action])
+  @@map("audit_logs")
+}
